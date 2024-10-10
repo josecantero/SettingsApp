@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">SettingsApp</string>
+
+    <!-- Setings -->
+    <string name="dark_mode">Modo Oscuro</string>
+    <string name="sBluetooth">Bluetooth</string>
+    <string name="sVolume">Volumen</string>
+    <string name="sVibration">Vibrar en las llamadas</string>
 </resources>
