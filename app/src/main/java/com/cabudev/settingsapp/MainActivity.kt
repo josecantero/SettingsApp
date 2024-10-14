@@ -4,6 +4,7 @@ import android.content.Context
 import android.os.Bundle
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatDelegate
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.datastore.core.DataStore
@@ -83,6 +84,11 @@ class MainActivity : AppCompatActivity() {
         }
 
         binding.sDarkMode.setOnCheckedChangeListener { _, isChecked ->
+            if(isChecked){
+                enableDarkMode()
+            }else{
+                disableDarkMode()
+            }
             CoroutineScope(Dispatchers.IO).launch{
                 saveOptions(KEY_DARKMODE, isChecked)
             }
@@ -111,5 +117,13 @@ class MainActivity : AppCompatActivity() {
             )
 
         }
+    }
+
+    private fun enableDarkMode(){
+        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
+    }
+
+    private fun disableDarkMode(){
+        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
     }
 }
